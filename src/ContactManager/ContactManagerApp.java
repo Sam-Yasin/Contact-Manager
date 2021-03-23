@@ -8,7 +8,8 @@ public class ContactManagerApp {
 
 //        ContactTools.viewContacts();
 //        ContactTools.addNewContact();
-        ContactTools.searchContact();
+//        ContactTools.searchContact();
+        ContactTools.deleteExistingContact();
     }
 
 
