@@ -7,7 +7,8 @@ public class ContactManagerApp {
 //        System.out.println(ContactTools.returnMenuDisplay());
 
 //        ContactTools.viewContacts();
-        ContactTools.addNewContact();
+//        ContactTools.addNewContact();
+        ContactTools.searchContact();
     }
 
 
