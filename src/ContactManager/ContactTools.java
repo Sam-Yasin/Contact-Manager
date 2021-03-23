@@ -67,15 +67,36 @@ public class ContactTools {
         }
 
         String userInput = sc.nextLine();
-
         for (String contact : contacts) {
             if (contact.contains(userInput)) {
                 String[] splitContact = contact.split(" ", 3);
                 System.out.println("Name: " + splitContact[0] + " " + splitContact[1] + " | " + "Number: " + splitContact[2]);
-            } else {
-                System.out.println("Person don't match");
             }
+//            else {
+//                System.out.println("Person don't match");
+//            }
         }
     }
+
+    public static void deleteExistingContact() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a name that you want to delete");
+        List<String> contacts = new ArrayList<>();
+
+        try {
+            contacts = Files.readAllLines(cmp);
+            String userInput = sc.nextLine();
+            for (String contact : contacts) {
+                if (contact.contains(userInput)) {
+//                    contacts.removeAll(contact);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
 }
 
