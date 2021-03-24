@@ -28,7 +28,6 @@ public class ContactTools {
         }
     }
 
-
     //Displaying main menu
     public static String menuDisplay() {
         return "Would you like to?\n\n" +
@@ -40,7 +39,6 @@ public class ContactTools {
                 "\n\n" +
                 "Select 1, 2, 3, 4, or 5";
     }
-
 
     //Iterating through .txt file and returning all contacts
     public static void viewContacts() {
@@ -74,7 +72,6 @@ public class ContactTools {
         }
     }
 
-
     //Taking user input and adding it to the existing ArrayList and then displaying it
     public static void searchContact() {
         Scanner sc = new Scanner(System.in);
@@ -100,7 +97,6 @@ public class ContactTools {
             System.out.println("Person doesn't match");
         }
     }
-
 
     //According to user input deleting existing data
     public static void deleteExistingContact() {
@@ -131,7 +127,6 @@ public class ContactTools {
             e.printStackTrace();
         }
     }
-
 
     //User selections and recursion for all above
     public static boolean executeChoice(int choice) {
