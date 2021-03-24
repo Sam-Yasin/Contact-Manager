@@ -21,7 +21,7 @@ public class ContactTools {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Enter Your Choice!");
             int userInput1 = scanner.nextInt();
-            System.out.println(executeChoice(userInput1));
+            executeChoice(userInput1);
         } else {
             System.out.println("* * * Thanks for using! * * *");
         }
