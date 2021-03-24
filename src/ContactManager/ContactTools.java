@@ -13,6 +13,8 @@ public class ContactTools {
     private static final Path cmp = Paths.get("src", "ContactManager", "peopleContacts.txt");
 
 
+
+
     public static String returnMenuDisplay() {
         String choice = "Would you like to?\n\n" +
                 "1. View contacts.\n" +
@@ -59,6 +61,7 @@ public class ContactTools {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a name");
         List<String> contacts = new ArrayList<>();
+        List<String> contactToSearch = new ArrayList<>();
 
         try {
             contacts = Files.readAllLines(cmp);
@@ -69,12 +72,13 @@ public class ContactTools {
         String userInput = sc.nextLine();
         for (String contact : contacts) {
             if (contact.contains(userInput)) {
+                contactToSearch.add(contact);
                 String[] splitContact = contact.split(" ", 3);
                 System.out.println("Name: " + splitContact[0] + " " + splitContact[1] + " | " + "Number: " + splitContact[2]);
             }
-//            else {
-//                System.out.println("Person don't match");
-//            }
+        }
+        if (contactToSearch.size() == 0) {
+            System.out.println("Person doesn't match");
         }
     }
 
@@ -82,20 +86,29 @@ public class ContactTools {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a name that you want to delete");
         List<String> contacts = new ArrayList<>();
+        List<String> contactsToDelete = new ArrayList<>();
 
         try {
             contacts = Files.readAllLines(cmp);
-            String userInput = sc.nextLine();
-            for (String contact : contacts) {
-                if (contact.contains(userInput)) {
-//                    contacts.removeAll(contact);
-                }
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
+        String userInput = sc.nextLine();
+        for(String contact : contacts) {
+            if (contact.contains(userInput)) {
+                contactsToDelete.add(contact);
+                System.out.println("Contact has been deleted");
+            }
+        }
+        if (contactsToDelete.size() == 0) {
+            System.out.println("Person doesn't match");
+        }
+        contacts.removeAll(contactsToDelete);
+        try {
+            Files.write(cmp, contacts);
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
