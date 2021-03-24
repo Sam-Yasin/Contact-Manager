@@ -10,5 +10,4 @@ public class ContactManagerApp {
         int userInput = scanner.nextInt();
         ContactTools.executeChoice(userInput);
     }
-
 }
